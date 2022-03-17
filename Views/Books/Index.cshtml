@@ -5,6 +5,21 @@
 
 <h1>Index</h1>
 
+<div class="container p-3">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2 class="text-primary text-white">    
+                Book List
+            </h2>
+        </div>  
+        <div class="col-6 text-end">
+            <a asp-controller="Books" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-arrow-right-square"></i> Add new book
+            </a>
+        </div>
+    </div>
+
+
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
@@ -13,6 +28,9 @@
             </th>
             <th>
                 Author
+            </th>
+            <th>
+                Description
             </th>
             <th>
                 Release year
@@ -26,14 +44,18 @@
                 <td width="30%">
                     @obj.Name
                 </td>
-                <td width="50%">
+                <td width="30%">
                     @obj.Author
                 </td>
                 <td width="50%">
+                    @obj.Description
+                </td>
+                <td>
                     @obj.Release_Year
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</div>
 
