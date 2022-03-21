@@ -3,30 +3,31 @@
 	ViewData["Title"] = "Add Book";
 }
 
-<form method="post">
+<form method="post" asp-action="DeletePOST">
+	<input asp-for="Id" hidden />
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
-			<h2 class="text-primary text-white">Add the book details</h2>
+			<h2 class="text-primary text-white">Delete the book and its details</h2>
 			<hr />
 		</div>
 		<div asp-validation-summary="All" class="text-danger"></div>
 		<div class="mb-3">
 			<label asp-for="Name">Name</label>
-			<input asp-for="Name" class="form-control" />
+			<input asp-for="Name" class="form-control" disabled />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Author">Author</label>
-			<input asp-for="Author" class="form-control" />
+			<input asp-for="Author" class="form-control" disabled/>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Description">Description</label>
-			<input asp-for="Description" class="form-control" />
+			<input asp-for="Description" class="form-control" disabled />
 		</div>
 		<div class="mb-3">
 			<label asp-for="Release_Year">Release year</label>
-			<input asp-for="Release_Year" class="form-control" />
+			<input asp-for="Release_Year" class="form-control" disabled/>
 		</div>
-		<button type="submit" class="btn btn-primary" style="width:150px"><i class="bi bi-book"></i> Add Book</button>
+		<button type="submit" class="btn btn-primary" style="width:150px"><i class="bi bi-trash"></i> Delete Book</button>
 		<a asp-controller="Books" asp-action="Index"  class="btn btn-secondary" style="width:150px"><i class="bi bi-arrow-left-square"></i> Back to List</a>
 	</div>
 </form>

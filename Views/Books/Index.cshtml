@@ -35,23 +35,35 @@
             <th>
                 Release year
             </th>
+            <th> 
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach(var obj in Model)
         {
             <tr>
-                <td width="30%">
+                <td width="20%">
                     @obj.Name
                 </td>
-                <td width="30%">
+                <td width="10%">
                     @obj.Author
                 </td>
                 <td width="50%">
                     @obj.Description
                 </td>
-                <td>
+                <td width="10%">
                     @obj.Release_Year
+                </td>
+                <td width="10%">
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Books" asp-action="Edit" asp-route-id="@obj.Id"><i class="bi bi-pencil"></i> Edit</a>
+                    </div>
+                    <br />
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Books" asp-action="Delete" asp-route-id="@obj.Id"><i class="bi bi-eraser"></i> Delete</a>
+                    </div>
                 </td>
             </tr>
         }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MVC.Models
 {
@@ -13,6 +14,7 @@ namespace MVC.Models
 
         public string Description { get; set; }
 
+        [DisplayName("Release Year")]
         public int Release_Year { get; set; }
 
         public DateTime Registration_Year { get; set; } = DateTime.Now;

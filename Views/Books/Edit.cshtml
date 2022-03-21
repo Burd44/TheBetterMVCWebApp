@@ -3,10 +3,10 @@
 	ViewData["Title"] = "Add Book";
 }
 
-<form method="post">
+<form method="post" asp-action="Edit">
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
-			<h2 class="text-primary text-white">Add the book details</h2>
+			<h2 class="text-primary text-white">Edit the book details</h2>
 			<hr />
 		</div>
 		<div asp-validation-summary="All" class="text-danger"></div>
@@ -26,7 +26,7 @@
 			<label asp-for="Release_Year">Release year</label>
 			<input asp-for="Release_Year" class="form-control" />
 		</div>
-		<button type="submit" class="btn btn-primary" style="width:150px"><i class="bi bi-book"></i> Add Book</button>
+		<button type="submit" class="btn btn-primary" style="width:150px"><i class="bi bi-gear"></i> Update Book</button>
 		<a asp-controller="Books" asp-action="Index"  class="btn btn-secondary" style="width:150px"><i class="bi bi-arrow-left-square"></i> Back to List</a>
 	</div>
 </form>
