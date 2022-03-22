@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MVC.Data;
 using MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVC.Controllers
 {
@@ -38,12 +39,14 @@ namespace MVC.Controllers
             {
                 _db.Books.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Book successfully added!";
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
 
         //Getter
+        [Authorize]
         public IActionResult Edit(int? id)
         {
             if(id == null || id == 0)
@@ -61,6 +64,7 @@ namespace MVC.Controllers
         }
 
         //Poster
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Books obj)
@@ -73,12 +77,14 @@ namespace MVC.Controllers
             {
                 _db.Books.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Book successfully edited!";
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
 
         //Getter
+        [Authorize]
         public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)
@@ -96,6 +102,7 @@ namespace MVC.Controllers
         }
 
         //Poster
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
@@ -107,6 +114,7 @@ namespace MVC.Controllers
             }
             _db.Books.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Book successfully deleted!";
             return RedirectToAction("Index");
         }
     }
