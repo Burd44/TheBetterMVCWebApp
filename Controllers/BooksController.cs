@@ -19,6 +19,7 @@ namespace MVC.Controllers
             IEnumerable<Books> books = _db.Books.ToList();
             return View(books);
         }
+
         //Getter
         public IActionResult Create()
         { 
